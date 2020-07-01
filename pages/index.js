@@ -12,7 +12,9 @@ export default function Home() {
       <main>
         <h1 className="title">
           {/* a tag sets the style */}
-          Read <Link href="/posts/first-post"> <a> this page! </a> </Link>
+          {/* Read <Link href="/posts/first-post"> <a> this page! </a> </Link> */}
+          {/* Read <Link href="/posts/first-post"><a>this page!</a></Link> */}
+          Read <Link href="/posts/first-post"><a>this page!</a></Link>
         </h1>
 
         <p className="description">
