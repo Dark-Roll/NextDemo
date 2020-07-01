@@ -21,7 +21,7 @@ const Login = () => {
               callback={handleFacebookLogin}
               // for Line
               isMobile
-              redirectUri="https://dbd0689c3420.ngrok.io/login"
+              redirectUri="https://next-demo-ecru.vercel.app/login"
             />
         </div>
     )
