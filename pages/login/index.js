@@ -3,13 +3,41 @@ import FacebookLogin from 'react-facebook-login';
 const Login = () => {
 
     const handleFacebookLogin = (res) => {
-        console.log(res)
+        alert(res.email)
+    }
+
+    const fetchExpress = () => {
+        alert('in fetch')
+        fetch('http://localhost:3003/activities', {})
+            .then(res => {
+                const contentType = res.headers.get('Content-Type');
+                let resParse
+                if(contentType != null) {
+                    if(contentType.indexOf('text') > -1) {
+                        resParse = res.text()
+                    }
+                    if(contentType.indexOf('form') > -1) {
+                        resParse = res.formData();
+                    }
+                    if(contentType.indexOf('video') > -1) {
+                        resParse = res.blob();
+                    }
+                    if(contentType.indexOf('json') > -1) {
+                        console.log('res is json', res)
+                        resParse = res.json();
+                    }
+                }
+                return resParse
+                console.log(res.body)
+            })
+            .then(data => alert(data))
+            .catch(err => alert(err))
     }
 
     return (
         <div>
             <h1>Login</h1>
-            <p> FB login</p>
+            <p onClick={fetchExpress}> fetch express</p>
             <FacebookLogin
               icon="icon" // icon className
               authType="rerequest"
